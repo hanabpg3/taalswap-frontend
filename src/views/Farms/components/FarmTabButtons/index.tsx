@@ -31,7 +31,7 @@ const FarmTabButtons: React.FC<FarmTabButtonsProps> = ({ hasStakeInFinishedFarms
 
   return (
     <Wrapper>
-      <ButtonMenu activeIndex={activeIndex} scale="sm" variant="subtle">
+      <ButtonMenu activeIndex={activeIndex} scale="sm" variant="primary">
         <ButtonMenuItem as={Link} to={`${url}`}>
           {t('Live')}
         </ButtonMenuItem>
@@ -53,8 +53,8 @@ const Wrapper = styled.div`
   align-items: center;
 
   a {
-    padding-left: 12px;
-    padding-right: 12px;
+    padding:10px 20px;
+    font-size:12px;
   }
 
   ${({ theme }) => theme.mediaQueries.sm} {

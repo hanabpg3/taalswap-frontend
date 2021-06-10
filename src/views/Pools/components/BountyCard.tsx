@@ -19,6 +19,7 @@ import { getBalanceNumber } from 'utils/formatBalance'
 import { useCakeVault, usePriceCakeBusd } from 'state/hooks'
 import Balance from 'components/Balance'
 import BountyModal from './BountyModal'
+import HelpButton from './HelpButton'
 
 const StyledCard = styled(Card)`
   width: 100%;
@@ -78,11 +79,12 @@ const BountyCard = () => {
   return (
     <>
       {tooltipVisible && tooltip}
-      <StyledCard>
-        <CardBody>
-          <Flex flexDirection="column">
-            <Flex alignItems="center" mb="12px">
-              <Text fontSize="16px" bold color="textSubtle" mr="4px">
+      <StyledCard style={{boxShadow:"none",minWidth:"initial",borderRadius:"0"}}>
+        <CardBody style={{display:"flex",padding:"0",width:"100%"}}>
+        <HelpButton />
+          <Flex flexDirection="row" mr="10px">
+            <Flex alignItems="center">
+              <Text fontSize="14px" bold color="textSubtle" mr="4px">
                 {t('Auto TAL Bounty')}
               </Text>
               <Box ref={targetRef}>
@@ -90,13 +92,13 @@ const BountyCard = () => {
               </Box>
             </Flex>
           </Flex>
-          <Flex alignItems="center" justifyContent="space-between">
-            <Flex flexDirection="column" mr="12px">
+          <Flex alignItems="center" justifyContent="space-between" mt="10px">
+            <Flex flexDirection="column" mr="10px">
               <Heading>
                 {hasFetchedCakeBounty ? (
-                  <Balance fontSize="20px" bold value={cakeBountyToDisplay} decimals={3} />
+                  <Balance fontSize="16px" bold value={cakeBountyToDisplay} decimals={3}/>
                 ) : (
-                  <Skeleton height={20} width={96} mb="2px" />
+                  <Skeleton height={20} width={96} mb="5px"/>
                 )}
               </Heading>
               {hasFetchedDollarBounty ? (
@@ -116,6 +118,7 @@ const BountyCard = () => {
               disabled={!dollarBountyToDisplay || !cakeBountyToDisplay || !callFee}
               onClick={onPresentBountyModal}
               scale="sm"
+              mr="5px"
             >
               {t('Claim')}
             </Button>

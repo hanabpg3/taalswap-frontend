@@ -4,14 +4,14 @@ import { ArrowDropDownIcon, Text } from 'taalswap-uikit'
 
 const DropDownHeader = styled.div`
   width: 100%;
-  height: 40px;
+  height: 50px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0px 16px;
   box-shadow: ${({ theme }) => theme.shadows.inset};
   border: 1px solid ${({ theme }) => theme.colors.inputSecondary};
-  border-radius: 16px;
+  border-radius: 8px;
   background: ${({ theme }) => theme.colors.input};
   transition: border-radius 0.15s;
 `
@@ -30,7 +30,7 @@ const DropDownListContainer = styled.div`
   width: 100%;
 
   ${({ theme }) => theme.mediaQueries.sm} {
-    min-width: 168px;
+    min-width: 130px;
   }
 `
 
@@ -40,12 +40,12 @@ const DropDownContainer = styled.div<{ isOpen: boolean; width: number; height: n
   position: relative;
   background: ${({ theme }) => theme.colors.input};
   border-radius: 16px;
-  height: 40px;
+  height: 50px;
   min-width: 136px;
   user-select: none;
 
   ${({ theme }) => theme.mediaQueries.sm} {
-    min-width: 168px;
+    min-width: 130px;
   }
 
   ${(props) =>
@@ -54,7 +54,7 @@ const DropDownContainer = styled.div<{ isOpen: boolean; width: number; height: n
       ${DropDownHeader} {
         border-bottom: 1px solid ${({ theme }) => theme.colors.inputSecondary};
         box-shadow: ${({ theme }) => theme.tooltip.boxShadow};
-        border-radius: 16px 16px 0 0;
+        border-radius: 8px 8px 0 0;
       }
 
       ${DropDownListContainer} {
@@ -63,7 +63,7 @@ const DropDownContainer = styled.div<{ isOpen: boolean; width: number; height: n
         opacity: 1;
         border: 1px solid ${({ theme }) => theme.colors.inputSecondary};
         border-top-width: 0;
-        border-radius: 0 0 16px 16px;
+        border-radius: 0 0 8px 8px;
         box-shadow: ${({ theme }) => theme.tooltip.boxShadow};
       }
     `}
