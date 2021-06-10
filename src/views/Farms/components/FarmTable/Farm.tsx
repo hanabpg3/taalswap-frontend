@@ -27,7 +27,6 @@ const Container = styled.div`
   align-items: center;
 
   ${({ theme }) => theme.mediaQueries.sm} {
-    padding-left: 32px;
   }
 `
 

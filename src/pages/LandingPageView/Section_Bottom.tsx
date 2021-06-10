@@ -11,7 +11,7 @@ const Section_Bottom = () => {
                     <div className='ido_textwrap'>
                         <p>Initial Taal Swap Offering</p>
                         <div>
-                            <p>Fire up yourproject with <span style={{color:'#00ab55'}}>TaalSwap IDO</span>!</p>
+                            <p>Fire up yourproject with <span style={{color:'#00ab55'}}>TaalSwap IDO</span></p>
                             <Link href='/'><input type="button" value='GO NOW' style={{cursor:'pointer'}}/></Link>
                         </div>
                     </div>

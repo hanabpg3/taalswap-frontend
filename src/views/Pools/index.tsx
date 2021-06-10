@@ -20,7 +20,6 @@ import PoolCard from './components/PoolCard'
 import CakeVaultCard from './components/CakeVaultCard'
 import PoolTabButtons from './components/PoolTabButtons'
 import BountyCard from './components/BountyCard'
-import HelpButton from './components/HelpButton'
 import PoolsTable from './components/PoolsTable/PoolsTable'
 import { ViewMode } from './components/ToggleView/ToggleView'
 import { getAprData, getCakeVaultEarnings } from './helpers'
@@ -207,23 +206,21 @@ const Pools: React.FC = () => {
   return (
     <>
       <PageHeader>
-        <Flex justifyContent="space-between" flexDirection={['column', null, null, 'row']}>
+        <div style={{borderBottom:"1px solid rgba(133,133,133,0.1)",paddingBottom:"32px"}}>
+        <Flex justifyContent="space-between" flexDirection={['column', null, null, 'row']} alignItems="center">
           <Flex flex="1" flexDirection="column" mr={['8px', 0]}>
-            <Heading as="h1" scale="xxl" color="secondary" mb="24px">
-              {t('Syrup Pools')}
+            <Heading as="h1" color="text" mb="15px" style={{fontSize:"30px",fontWeight:"bold"}}>
+              {t('Staking Pools')}
             </Heading>
-            <Heading scale="md" color="text">
-              {t('Just stake some tokens to earn.')}
-            </Heading>
-            <Heading scale="md" color="text">
-              {t('High APR, low risk.')}
+            <Heading color="textSubtle" style={{fontSize:"16px"}}>
+              {t('Just stake some tokens to earn. High Yields, Little Risks.')}
             </Heading>
           </Flex>
           <Flex flex="1" height="fit-content" justifyContent="center" alignItems="center" mt={['24px', null, '0']}>
-            <HelpButton />
             <BountyCard />
           </Flex>
         </Flex>
+        </div>
       </PageHeader>
       <Page>
         <PoolControls justifyContent="space-between">

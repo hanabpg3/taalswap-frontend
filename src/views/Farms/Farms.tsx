@@ -341,22 +341,24 @@ const Farms: React.FC = () => {
   return (
     <>
       <PageHeader>
-        <Heading as="h1" scale="xxl" color="secondary" mb="24px">
+      <div style={{borderBottom:"1px solid rgba(133,133,133,0.1)",paddingBottom:"32px"}}>
+        <Heading as="h1" color="text" mb="15px" style={{fontSize:"30px",fontWeight:"bold"}}>
           {t('Farms')}
         </Heading>
-        <Heading scale="lg" color="text">
-          {t('Stake Liquidity Pool (LP) tokens to earn.')}
+        <Heading color="textSubtle" style={{fontSize:"16px"}}>
+          {t('Start farming by staking your LP tokens')}
         </Heading>
+      </div>
       </PageHeader>
       <Page>
         <ControlContainer>
           <ViewControls>
             <ToggleView viewMode={viewMode} onToggle={(mode: ViewMode) => setViewMode(mode)} />
-            <ToggleWrapper>
-              <Toggle checked={stakedOnly} onChange={() => setStakedOnly(!stakedOnly)} scale="sm" />
+            <FarmTabButtons hasStakeInFinishedFarms={stakedInactiveFarms.length > 0} />
+            <ToggleWrapper >
+              <Toggle checked={stakedOnly} onChange={() => setStakedOnly(!stakedOnly)} scale="sm"/>
               <Text> {t('Staked only')}</Text>
             </ToggleWrapper>
-            <FarmTabButtons hasStakeInFinishedFarms={stakedInactiveFarms.length > 0} />
           </ViewControls>
           <FilterContainer>
             <LabelWrapper>

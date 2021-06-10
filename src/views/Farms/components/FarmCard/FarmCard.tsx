@@ -35,11 +35,11 @@ const StyledCardAccent = styled.div`
   background: ${({ theme }) => `linear-gradient(180deg, ${theme.colors.primaryBright}, ${theme.colors.secondary})`};
   background-size: 400% 400%;
   animation: ${AccentGradient} 2s linear infinite;
-  border-radius: 32px;
+  border-radius: 15px;
   position: absolute;
   top: -1px;
   right: -1px;
-  bottom: -3px;
+  bottom: -1px;
   left: -1px;
   z-index: -1;
 `
@@ -47,7 +47,7 @@ const StyledCardAccent = styled.div`
 const FCard = styled.div<{ isPromotedFarm: boolean }>`
   align-self: baseline;
   background: ${(props) => props.theme.card.background};
-  border-radius: ${({ theme, isPromotedFarm }) => (isPromotedFarm ? '31px' : theme.radii.card)};
+  border-radius: 15px;
   box-shadow: 0px 1px 4px rgba(25, 19, 38, 0.15);
   display: flex;
   flex-direction: column;
