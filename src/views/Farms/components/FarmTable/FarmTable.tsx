@@ -2,7 +2,7 @@ import React, { useRef } from 'react'
 import styled from 'styled-components'
 import { useTable, Button, ChevronUpIcon, ColumnType } from 'taalswap-uikit'
 import { useTranslation } from 'contexts/Localization'
-
+import CellLayout from './CellLayout'
 import Row, { RowProps } from './Row'
 
 export interface ITableProps {
@@ -18,6 +18,7 @@ const Container = styled.div`
   background: ${({ theme }) => theme.card.background};
   border-radius: 16px;
   margin: 16px 0px;
+  padding:30px;
 `
 
 const TableWrapper = styled.div`
@@ -42,7 +43,18 @@ const TableBody = styled.tbody`
     td {
       font-size: 16px;
       vertical-align: middle;
+      border-bottom: 2px solid rgba(133,133,133,0.1);
     }
+  }
+  & tr{
+    th{
+      text-align:left;
+      background: ${({ theme }) => theme.colors.tertiary};
+      color: ${({ theme }) => theme.colors.textSubtle};
+    }
+  }
+  &tr{
+    padding:0 20px;
   }
 `
 
@@ -69,13 +81,50 @@ const FarmTable: React.FC<ITableProps> = (props) => {
       behavior: 'smooth',
     })
   }
+  
+  const CellInner = styled.div`
+  padding: 24px 0px;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  padding-right: 8px;
 
+  ${({ theme }) => theme.mediaQueries.xl} {
+    padding-right: 32px;
+  }
+`
   return (
     <Container>
       <TableContainer>
         <TableWrapper ref={tableWrapperEl}>
           <StyledTable>
             <TableBody>
+              <tr>
+                <th style={{borderRadius:"8px 0 0 8px",paddingLeft:"20px"}}>
+                  <CellInner>
+                    <CellLayout>Pair</CellLayout>
+                  </CellInner>
+                </th>
+                <th>
+                  <CellInner>
+                    <CellLayout>Earned</CellLayout>
+                  </CellInner>
+                </th>
+                <th>
+                  <CellInner>
+                    <CellLayout>APR</CellLayout>
+                  </CellInner>
+                </th>
+                <th><CellInner>
+                    <CellLayout>Liquidity</CellLayout>
+                  </CellInner></th>
+                <th><CellInner>
+                    <CellLayout>Multiplier</CellLayout>
+                  </CellInner></th>
+                <th style={{borderRadius:"0 8px 8px 0"}}><CellInner>
+                    <CellLayout>Details View</CellLayout>
+                  </CellInner></th>
+              </tr>
               {rows.map((row) => {
                 return <Row {...row.original} userDataReady={userDataReady} key={`table-row-${row.id}`} />
               })}
